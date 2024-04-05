@@ -8,8 +8,8 @@ export const Calendar = ({ date }: { date: Date }) => {
     const startDayInWeek = startMonth.day();
     const render = [];
     const startIndex = -startDayInWeek + 1;
-    const endIndex = 35 - startIndex;
-    for (let i = startIndex; i <= endIndex; i++) {
+    const endIndex = 35 + startIndex;
+    for (let i = startIndex; i < endIndex; i++) {
       const dateDay = startMonth.add(i, "days");
       render.push({ dateDay, isSameMonth: dateDay.isSame(startMonth, "month") });
     }

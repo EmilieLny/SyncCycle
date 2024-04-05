@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <p className="rotate-45 text-lime-400 text-center">NIR</p>
-      <Calendar date={new Date("02-01-2024")} />
+      <Calendar date={new Date("04-01-2024")} />
     </>
   );
 }
