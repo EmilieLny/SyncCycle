@@ -1,7 +1,8 @@
-import { CircleChevronLeft, CircleChevronRight, CircleChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Calendar } from "./Calendar/Calendar";
 import { useState } from "react";
 import dayjs from "dayjs";
+import { Button } from "@/components/ui/Button/button";
 
 function App() {
   const [date, setDate] = useState(new Date());
@@ -17,10 +18,12 @@ function App() {
   return (
     <>
       <p className="rotate-45 text-lime-400 text-center w-fit mx-auto">NIR</p>
-      <div className="flex flex-row justify-center">
-        <CircleChevronLeft size={28} strokeWidth={0.75} onClick={onBackPeriod} />
-        <CircleChevronDown size={28} strokeWidth={0.75} onClick={onNowPeriod} />
-        <CircleChevronRight size={28} strokeWidth={0.75} onClick={onNextPeriod} />
+      <div className="flex flex-row justify-center items-center gap-x-4">
+        <ChevronLeft size={28} strokeWidth={1} onClick={onBackPeriod} />
+        <Button className="rounded-full" onClick={onNowPeriod}>
+          Today
+        </Button>
+        <ChevronRight size={28} strokeWidth={1} onClick={onNextPeriod} />
       </div>
 
       <Calendar date={date} />
