@@ -2,13 +2,15 @@ import { useCallback, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { CalendarState } from "./CalendarState.type";
 
+export type View = "monthly" | "weekly";
+
 export const weeklyView: CalendarState = {
   increment: (date) => date.add(1, "week"),
   decrement: (date) => date.subtract(1, "week"),
   now: () => dayjs(),
   getEntities: (date) => {
     const start = date.startOf("week");
-    return Array.from({ length: 7 }).map((_, index) => start.add(index, "day"));
+    return Array.from({ length: 7 }).map((_, index) => start.add(index + 1, "day"));
   },
   labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   period: "week",
@@ -34,7 +36,7 @@ export const monthlyView: CalendarState = {
   period: "month",
 };
 
-export const useCalendar = (initialView = "monthly") => {
+export const useCalendar = (initialView: View = "monthly") => {
   const [date, setCurrentDate] = useState(dayjs());
   const [view, setView] = useState(initialView);
 
@@ -62,5 +64,5 @@ export const useCalendar = (initialView = "monthly") => {
 
   const { labels, period } = viewStrategy;
 
-  return { date, increment, decrement, now, entities, setView, labels, period };
+  return { date, increment, decrement, now, entities, setView, labels, period, view };
 };
