@@ -1,9 +1,10 @@
-import type { Dayjs } from "dayjs";
+import type { Dayjs, OpUnitType } from "dayjs";
 
 export interface CalendarState {
-  increment: (currentDate: Dayjs) => Dayjs;
-  decrement: (currentDate: Dayjs) => Dayjs;
+  increment: (date: Dayjs) => Dayjs;
+  decrement: (date: Dayjs) => Dayjs;
   now: () => Dayjs;
-  getEntities: (currentDate: Dayjs) => Dayjs[];
+  getEntities: (date: Dayjs) => Dayjs[];
   labels: string[];
+  period: OpUnitType;
 }

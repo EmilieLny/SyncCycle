@@ -11,6 +11,7 @@ export const weeklyView: CalendarState = {
     return Array.from({ length: 7 }).map((_, index) => start.add(index, "day"));
   },
   labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  period: "week",
 };
 
 export const monthlyView: CalendarState = {
@@ -30,6 +31,7 @@ export const monthlyView: CalendarState = {
     return entities;
   },
   labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  period: "month",
 };
 
 export const useCalendar = (initialView = "monthly") => {
@@ -58,5 +60,7 @@ export const useCalendar = (initialView = "monthly") => {
   const now = useCallback(() => setCurrentDate(viewStrategy.now()), [viewStrategy]);
   const entities = useMemo(() => viewStrategy.getEntities(date), [viewStrategy, date]);
 
-  return { date, increment, decrement, now, entities, setView, labels: viewStrategy.labels };
+  const { labels, period } = viewStrategy;
+
+  return { date, increment, decrement, now, entities, setView, labels, period };
 };
