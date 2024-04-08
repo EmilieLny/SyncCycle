@@ -19,7 +19,7 @@ export const Calendar = ({ date }: { date: Date }) => {
   const days = useMemo(() => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], []);
 
   return (
-    <div className="grid flex-1 grid-cols-7 grid-rows-6 gap-[1px]	">
+    <div className="grid flex-1 grid-cols-7 grid-rows-[40px_repeat(5,1fr)] gap-[1px]	">
       {days.map((d) => (
         <div key={d} className="grid place-items-center text-xs uppercase">
           {d}
