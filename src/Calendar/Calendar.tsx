@@ -16,11 +16,18 @@ export const Calendar = ({ date }: { date: Date }) => {
     return render;
   }, [date]);
 
+  const days = useMemo(() => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], []);
+
   return (
-    <div className="grid grid-cols-7 grid-rows-5 gap-4">
+    <div className="grid flex-1 grid-cols-7 grid-rows-6 gap-[1px]	">
+      {days.map((d) => (
+        <div key={d} className="grid place-items-center text-xs uppercase">
+          {d}
+        </div>
+      ))}
       {arr.map((a) => (
         <Day key={a.dateDay.format("YYYY-MM-DD")} isSameMonth={a.isSameMonth}>
-          {a.dateDay.format("dddd-DD")}
+          {a.dateDay.format("DD")}
         </Day>
       ))}
     </div>
