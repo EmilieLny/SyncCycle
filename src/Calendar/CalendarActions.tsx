@@ -20,7 +20,7 @@ export const CalendarActions = ({
   date: Dayjs;
 }) => {
   return (
-    <div>
+    <div className="p-4">
       <div className="flex items-center justify-center">
         <ToggleGroup.Root
           type="single"
