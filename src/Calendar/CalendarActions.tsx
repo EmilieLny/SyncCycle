@@ -25,19 +25,23 @@ export const CalendarActions = ({
         onValueChange={(view) => {
           if (view) setView(view as View);
         }}
-        className="flex flex-row gap-1 rounded-full bg-gray-100"
+        className="inline-block rounded-full bg-gray-100"
       >
-        <ToggleGroup.Item
-          value="monthly"
-          className="rounded-full bg-white p-2 text-black data-[state=on]:bg-black data-[state=on]:text-white"
-        >
-          Month
+        <ToggleGroup.Item asChild value="monthly">
+          <Button
+            variant={"ghost"}
+            className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+          >
+            Month
+          </Button>
         </ToggleGroup.Item>
-        <ToggleGroup.Item
-          value="weekly"
-          className="rounded-full bg-white p-2 text-black data-[state=on]:bg-black data-[state=on]:text-white"
-        >
-          Week
+        <ToggleGroup.Item asChild value="weekly">
+          <Button
+            variant={"ghost"}
+            className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+          >
+            Week
+          </Button>
         </ToggleGroup.Item>
       </ToggleGroup.Root>
       <div className="flex flex-row items-center justify-center gap-x-4">
