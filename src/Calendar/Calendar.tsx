@@ -14,6 +14,7 @@ export const Calendar = () => {
         decrement={decrement}
         view={view}
         setView={setView}
+        date={date}
       />
       <CalendarDisplay date={date} entities={entities} labels={labels} period={period} />
     </>

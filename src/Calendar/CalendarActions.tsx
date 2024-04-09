@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button/Button";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { View } from "./useCalendar";
+import type { Dayjs } from "dayjs";
 
 export const CalendarActions = ({
   increment,
@@ -9,12 +10,14 @@ export const CalendarActions = ({
   now,
   view,
   setView,
+  date,
 }: {
   increment: () => void;
   decrement: () => void;
   now: () => void;
   view: View;
   setView: (view: View) => void;
+  date: Dayjs;
 }) => {
   return (
     <div>
@@ -48,7 +51,11 @@ export const CalendarActions = ({
       </div>
 
       <div className="flex items-center justify-between">
-        <div>MONTH</div>
+        <div>
+          <h1 className="inline-block text-4xl font-bold">{date.format("MMMM,")}</h1> &#160;
+          <h1 className="inline-block text-4xl font-bold text-primary">{date.format("YYYY")}</h1>
+        </div>
+
         <div className="flex flex-row items-center justify-center gap-x-4">
           <ChevronLeft size={28} strokeWidth={1} onClick={decrement} />
           <Button className="rounded-full" onClick={now}>
