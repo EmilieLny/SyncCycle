@@ -8,8 +8,6 @@ export const Calendar = () => {
 
   return (
     <>
-      <button onClick={() => setView("weekly")}>Hey</button>
-
       <CalendarActions
         now={now}
         increment={increment}
