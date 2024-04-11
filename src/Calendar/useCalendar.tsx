@@ -21,7 +21,6 @@ export const weeklyView: CalendarState = {
   decrement: (date) => date.subtract(1, "week"),
   now: () => dayjs(),
   getEntities: (date) => {
-    // dayjs().locale("en").format();
     const start = dayjs(date).weekday(0);
     return Array.from({ length: 7 }).map((_, index) => start.weekday(index));
   },
