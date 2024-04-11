@@ -5,6 +5,6 @@ export interface CalendarState {
   decrement: (date: Dayjs) => Dayjs;
   now: () => Dayjs;
   getEntities: (date: Dayjs) => Dayjs[];
-  labels: string[];
+  getLabels: () => string[];
   period: OpUnitType;
 }

@@ -1,6 +1,18 @@
 import { useCallback, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { CalendarState } from "./CalendarState.type";
+import "dayjs/locale/en";
+import weekday from "dayjs/plugin/weekday";
+import updateLocale from "dayjs/plugin/updateLocale";
+import localeData from "dayjs/plugin/localeData";
+
+dayjs.extend(localeData);
+dayjs.extend(weekday);
+dayjs.extend(updateLocale);
+
+dayjs.updateLocale("en", {
+  weekStart: 1,
+});
 
 export type View = "monthly" | "weekly";
 
@@ -9,10 +21,14 @@ export const weeklyView: CalendarState = {
   decrement: (date) => date.subtract(1, "week"),
   now: () => dayjs(),
   getEntities: (date) => {
-    const start = date.startOf("week");
-    return Array.from({ length: 7 }).map((_, index) => start.add(index + 1, "day"));
+    // dayjs().locale("en").format();
+    const start = dayjs(date).weekday(0);
+    return Array.from({ length: 7 }).map((_, index) => start.weekday(index));
   },
-  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  getLabels: () => {
+    const start = dayjs().weekday(0);
+    return Array.from({ length: 7 }).map((_, index) => start.weekday(index).format("ddd"));
+  },
   period: "week",
 };
 
@@ -32,7 +48,10 @@ export const monthlyView: CalendarState = {
     }
     return entities;
   },
-  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  getLabels: () => {
+    const start = dayjs().weekday(0);
+    return Array.from({ length: 7 }).map((_, index) => start.weekday(index).format("ddd"));
+  },
   period: "month",
 };
 
@@ -61,8 +80,9 @@ export const useCalendar = (initialView: View = "monthly") => {
   );
   const now = useCallback(() => setCurrentDate(viewStrategy.now()), [viewStrategy]);
   const entities = useMemo(() => viewStrategy.getEntities(date), [viewStrategy, date]);
+  const labels = useMemo(() => viewStrategy.getLabels(), [viewStrategy]);
 
-  const { labels, period } = viewStrategy;
+  const { period } = viewStrategy;
 
   return { date, increment, decrement, now, entities, setView, labels, period, view };
 };
