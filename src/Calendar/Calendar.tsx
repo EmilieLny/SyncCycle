@@ -16,7 +16,13 @@ export const Calendar = () => {
         setView={setView}
         date={date}
       />
-      <CalendarDisplay date={date} entities={entities} labels={labels} period={period} />
+      <CalendarDisplay
+        date={date}
+        entities={entities}
+        labels={labels}
+        period={period}
+        view={view}
+      />
     </>
   );
 };
