@@ -1,9 +1,22 @@
 import { twMerge } from "tailwind-merge";
 import { Day } from "./Day";
 import { useCalendarContext } from "./CalendarContext/useCalendarContext";
+import Events from "../MockData/Events.json";
+
+type Event = (typeof Events)[number];
+
+const eventsByDate = Events.reduce(
+  (acc, event) => {
+    if (!acc[event.startDate]) acc[event.startDate] = [];
+    acc[event.startDate].push(event);
+    return acc;
+  },
+  {} as Record<string, Event[]>,
+);
 
 export const CalendarDisplay = () => {
   const { date, entities, labels, period, view } = useCalendarContext();
+  console.log(eventsByDate);
   return (
     <div
       className={twMerge(
