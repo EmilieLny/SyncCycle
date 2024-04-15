@@ -1,21 +1,9 @@
 import { twMerge } from "tailwind-merge";
 import { Day } from "./Day";
-import type { Dayjs, OpUnitType } from "dayjs";
-import { View } from "./useCalendar";
+import { useCalendarContext } from "./CalendarContext/useCalendarContext";
 
-export const CalendarDisplay = ({
-  date,
-  entities,
-  labels,
-  period,
-  view,
-}: {
-  date: Dayjs;
-  entities: Dayjs[];
-  labels: string[];
-  period: OpUnitType;
-  view: View;
-}) => {
+export const CalendarDisplay = () => {
+  const { date, entities, labels, period, view } = useCalendarContext();
   return (
     <div
       className={twMerge(

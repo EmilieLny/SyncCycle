@@ -2,23 +2,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button/Button";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { View } from "./useCalendar";
-import type { Dayjs } from "dayjs";
+import { useCalendarContext } from "./CalendarContext/useCalendarContext";
 
-export const CalendarActions = ({
-  increment,
-  decrement,
-  now,
-  view,
-  setView,
-  date,
-}: {
-  increment: () => void;
-  decrement: () => void;
-  now: () => void;
-  view: View;
-  setView: (view: View) => void;
-  date: Dayjs;
-}) => {
+export const CalendarActions = () => {
+  const { view, setView, date, increment, decrement, now } = useCalendarContext();
   return (
     <div className="p-4">
       <div className="flex items-center justify-center">
