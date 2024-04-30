@@ -2,17 +2,24 @@ import { twMerge } from "tailwind-merge";
 import { Day } from "./Day";
 import { useCalendarContext } from "./CalendarContext/useCalendarContext";
 import Events from "../MockData/Events.json";
+import dayjs from "dayjs";
 
 type Event = (typeof Events)[number];
 
 const eventsByDate = Events.reduce(
   (acc, event) => {
-    if (!acc[event.startDate]) acc[event.startDate] = [];
-    acc[event.startDate].push(event);
+    const key = dayjs(event.startDate).format("YYYY-MM-DD");
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(event);
     return acc;
   },
   {} as Record<string, Event[]>,
 );
+
+const getEventsByDate = (date: Date) => {
+  const dateFormatted = dayjs(date).format("YYYY-MM-DD");
+  return eventsByDate[dateFormatted] || [];
+};
 
 export const CalendarDisplay = () => {
   const { date, entities, labels, period, view } = useCalendarContext();
@@ -33,6 +40,9 @@ export const CalendarDisplay = () => {
       {entities.map((d) => (
         <Day key={d.format("YYYY-MM-DD")} isSameMonth={d.isSame(date, period)}>
           {d.format("DD")}
+          {getEventsByDate(d.toDate()).map((event) => (
+            <div style={{ backgroundColor: event.color }}>{event.title}</div>
+          ))}
         </Day>
       ))}
     </div>

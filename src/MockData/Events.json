@@ -1,80 +1,80 @@
 [
   {
     "id": 1,
-    "startDate": 1738310400,
-    "endDate": 1738483200,
+    "startDate": 1738310400000,
+    "endDate": 1738483200000,
     "title": "Conference",
     "description": "Annual conference on technology trends",
     "color": "#FF5733"
   },
   {
     "id": 2,
-    "startDate": 1738473600,
-    "endDate": 1738646400,
+    "startDate": 1738473600000,
+    "endDate": 1738646400000,
     "title": "Workshop",
     "description": "Workshop on machine learning algorithms",
     "color": "#3366FF"
   },
   {
     "id": 3,
-    "startDate": 1738646400,
-    "endDate": 1738819200,
+    "startDate": 1738646400000,
+    "endDate": 1738819200000,
     "title": "Seminar",
     "description": "Seminar on artificial intelligence applications",
     "color": "#66CC99"
   },
   {
     "id": 4,
-    "startDate": 1738646400,
-    "endDate": 1738732800,
+    "startDate": 1738646400000,
+    "endDate": 1738732800000,
     "title": "Training",
     "description": "Training session on cloud computing",
     "color": "#9933FF"
   },
   {
     "id": 5,
-    "startDate": 1738732800,
-    "endDate": 1738905600,
+    "startDate": 1738732800000,
+    "endDate": 1738905600000,
     "title": "Hackathon",
     "description": "Hackathon for software developers",
     "color": "#FFCC00"
   },
   {
     "id": 6,
-    "startDate": 1738310400,
-    "endDate": 1738396800,
+    "startDate": 1738310400000,
+    "endDate": 1738396800000,
     "title": "Webinar",
     "description": "Webinar on cybersecurity best practices",
     "color": "#66FF99"
   },
   {
     "id": 7,
-    "startDate": 1738396800,
-    "endDate": 1738483200,
+    "startDate": 1738396800000,
+    "endDate": 1738483200000,
     "title": "Panel Discussion",
     "description": "Panel discussion on data privacy regulations",
     "color": "#FF3399"
   },
   {
     "id": 8,
-    "startDate": 1738819200,
-    "endDate": 1738905600,
+    "startDate": 1738819200000,
+    "endDate": 1738905600000,
     "title": "Product Launch",
     "description": "Launch event for new software product",
     "color": "#9966CC"
   },
   {
     "id": 9,
-    "startDate": 1738905600,
-    "endDate": 1738992000,
+    "startDate": 1738905600000,
+    "endDate": 1738992000000,
     "title": "Networking Event",
     "description": "Networking event for industry professionals",
     "color": "#33FFFF"
   },
   {
     "id": 10,
-    "startDate": 1738992000,
-    "endDate": 1739155200,
+    "startDate": 1738992000000,
+    "endDate": 1739155200000,
     "title": "Symposium",
     "description": "Symposium on emerging technologies",
     "color": "#FF6666"
