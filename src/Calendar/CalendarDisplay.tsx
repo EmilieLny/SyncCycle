@@ -23,7 +23,6 @@ const getEventsByDate = (date: Date) => {
 
 export const CalendarDisplay = () => {
   const { date, entities, labels, period, view } = useCalendarContext();
-  console.log(eventsByDate);
   return (
     <div
       className={twMerge(
@@ -38,7 +37,7 @@ export const CalendarDisplay = () => {
         </div>
       ))}
       {entities.map((d) => (
-        <Day key={d.format("YYYY-MM-DD")} isSameMonth={d.isSame(date, period)}>
+        <Day key={d.format("YYYY-MM-DD")} isSamePeriod={d.isSame(date, period)}>
           {d.format("DD")}
           {getEventsByDate(d.toDate()).map((event) => (
             <div style={{ backgroundColor: event.color }}>{event.title}</div>
