@@ -1,8 +1,24 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/Button/Button";
+import { Button, ButtonGhost } from "@/components/ui/Button/Button";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { View } from "./useCalendar";
 import { useCalendarContext } from "./CalendarContext/useCalendarContext";
+import React from "react";
+import { StyledComponentPropsWithAs } from "src/type";
+
+type ButtonProps = React.ComponentProps<typeof Button & typeof ButtonGhost>;
+
+type StyledButtonProps = StyledComponentPropsWithAs<ButtonProps>;
+
+type ToggleGroupItemProps = {
+  val: "monthly" | "weekly";
+  selectedValue: "monthly" | "weekly";
+} & StyledButtonProps;
+
+const ToggleGroupItem = ({ val, selectedValue, ...props }: ToggleGroupItemProps) => {
+  if (val === selectedValue) return <Button {...props} />;
+  return <ButtonGhost {...props} />;
+};
 
 export const CalendarActions = () => {
   const { view, setView, date, increment, decrement, now } = useCalendarContext();
@@ -18,22 +34,12 @@ export const CalendarActions = () => {
           }}
           className="inline-block rounded-full bg-gray-100"
         >
-          <ToggleGroup.Item asChild value="monthly">
-            <Button
-              variant={"ghost"}
-              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-            >
-              Month
-            </Button>
-          </ToggleGroup.Item>
-          <ToggleGroup.Item asChild value="weekly">
-            <Button
-              variant={"ghost"}
-              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-            >
-              Week
-            </Button>
-          </ToggleGroup.Item>
+          <ToggleGroupItem as={ToggleGroup.Item} value="monthly" val="monthly" selectedValue={view}>
+            Month
+          </ToggleGroupItem>
+          <ToggleGroupItem as={ToggleGroup.Item} value="weekly" val="weekly" selectedValue={view}>
+            Week
+          </ToggleGroupItem>
         </ToggleGroup.Root>
       </div>
 

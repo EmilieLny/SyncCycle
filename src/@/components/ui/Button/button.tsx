@@ -1,15 +1,16 @@
-import { forwardRef } from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { ButtonProps, buttonVariants } from "./button.type";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+export const Button = styled.button`
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  background-color: #ff8f9e;
+  color: #fff;
+  border-radius: 9999px;
+`;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
-    );
-  },
-);
-Button.displayName = "Button";
+export const ButtonGhost = styled(Button)`
+  color: #000;
+  background-color: #f3f4f6;
+`;
