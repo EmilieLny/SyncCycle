@@ -1,6 +1,6 @@
 import { CalendarActions } from "./CalendarActions/CalendarActions";
 import { CalendarContext } from "./CalendarContext/CalendarContext";
-import { CalendarDisplay } from "./CalendarDisplay";
+import { CalendarDisplay } from "./CalendarDisplay/CalendarDisplay";
 import { useCalendar } from "./useCalendar";
 
 export const Calendar = () => {
