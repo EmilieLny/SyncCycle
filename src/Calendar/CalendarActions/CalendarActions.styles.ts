@@ -19,3 +19,18 @@ export const CalendarActionsWrap = styled.div`
 export const NavigationWrap = styled(Center)`
   gap: 16px;
 `;
+
+export const DateMonth = styled.h1`
+  display: inline-block;
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-weight: bold;
+`;
+
+export const DateYear = styled.h1`
+  display: inline-block;
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-weight: bold;
+  color: #ff8f9e;
+`;

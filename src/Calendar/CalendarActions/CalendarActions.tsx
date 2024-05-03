@@ -9,6 +9,8 @@ import {
   ToggleGroupRoot,
   CenterJustified,
   NavigationWrap,
+  DateMonth,
+  DateYear,
 } from "./CalendarActions.styles";
 import { ToggleGroupItemProps } from "./CalendarAction.types";
 
@@ -41,8 +43,8 @@ export const CalendarActions = () => {
 
       <CenterJustified align="vertical">
         <div>
-          <h1 className="inline-block text-4xl font-bold">{date.format("MMMM,")}</h1> &#160;
-          <h1 className="inline-block text-4xl font-bold text-primary">{date.format("YYYY")}</h1>
+          <DateMonth>{date.format("MMMM,")}</DateMonth> &#160;
+          <DateYear>{date.format("YYYY")}</DateYear>
         </div>
 
         <NavigationWrap>

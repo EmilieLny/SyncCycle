@@ -1,4 +1,4 @@
-import { Day } from "../Day";
+import { Day } from "../Day/Day";
 import { useCalendarContext } from "../CalendarContext/useCalendarContext";
 import { getEventsByDate } from "./getEventsByDate"; // TODO [Emi] : take care of the events
 import { CalendarDisplayWrap, CalendarHeader } from "./CalendarDisplay.styles";

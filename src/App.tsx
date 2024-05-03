@@ -1,9 +1,19 @@
 import { Calendar } from "./Calendar/Calendar";
 
+import styled from "styled-components";
+
+const NirWrap = styled.p`
+  margin: auto;
+  width: fit-content;
+  transform: rotate(45deg);
+  text-align: center;
+  color: limegreen;
+`;
+
 function App() {
   return (
     <>
-      <p className="mx-auto w-fit rotate-45 text-center text-lime-400">NIR</p>
+      <NirWrap>NIR</NirWrap>
       <Calendar />
     </>
   );
