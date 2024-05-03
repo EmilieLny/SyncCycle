@@ -12,9 +12,15 @@ type Align = "both" | "horizontal" | "vertical";
 export const Center = ({
   children,
   align = "both",
+  className,
 }: {
   children: React.ReactNode;
-  align: Align;
+  align?: Align;
+  className?: string;
 }) => {
-  return <StyledCenter align={align}>{children}</StyledCenter>;
+  return (
+    <StyledCenter align={align} className={className}>
+      {children}
+    </StyledCenter>
+  );
 };

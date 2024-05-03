@@ -1,4 +1,4 @@
-import { CalendarActions } from "./CalendarActions";
+import { CalendarActions } from "./CalendarActions/CalendarActions";
 import { CalendarContext } from "./CalendarContext/CalendarContext";
 import { CalendarDisplay } from "./CalendarDisplay";
 import { useCalendar } from "./useCalendar";
