@@ -7,15 +7,9 @@ import dayjs from "dayjs";
 
 export const CalendarDisplay = () => {
   const { date, entities, labels, period, view } = useCalendarContext();
-  const {
-    data,
-    // error,
-    isLoading,
-  } = useGetEventsQuery();
+  const { data } = useGetEventsQuery();
 
-  if (isLoading) return <div>Loading...</div>;
-
-  const eventsByDate = data!.eventsByDate || [];
+  const eventsByDate = data?.eventsByDate || {};
 
   const formatEvent = (date: Date): CalendarEvent[] => {
     const dateFormatted = dayjs(date).format("YYYY-MM-DD");
