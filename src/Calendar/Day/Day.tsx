@@ -1,7 +1,24 @@
-import { ReactNode } from "react";
-
 import { DayWrap } from "./Day.styles";
+import { Dayjs } from "dayjs";
+import { CalendarEvent } from "src/services/events.api.type";
 
-export const Day = ({ children, isSamePeriod }: { children: ReactNode; isSamePeriod: boolean }) => {
-  return <DayWrap $isSamePeriod={isSamePeriod}>{children}</DayWrap>;
+export const Day = ({
+  isSamePeriod,
+  date,
+  events,
+}: {
+  isSamePeriod: boolean;
+  date: Dayjs;
+  events: CalendarEvent[];
+}) => {
+  return (
+    <DayWrap $isSamePeriod={isSamePeriod}>
+      {date.format("DD")}
+      {events.map((event) => (
+        <div style={{ backgroundColor: event.color }} key={event.id}>
+          {event.title}
+        </div>
+      ))}
+    </DayWrap>
+  );
 };

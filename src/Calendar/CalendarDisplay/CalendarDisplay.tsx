@@ -22,14 +22,12 @@ export const CalendarDisplay = () => {
         <CalendarHeader key={label}>{label}</CalendarHeader>
       ))}
       {entities.map((d) => (
-        <Day key={d.format("YYYY-MM-DD")} isSamePeriod={d.isSame(date, period)}>
-          {d.format("DD")}
-          {formatEvent(d.toDate()).map((event) => (
-            <div style={{ backgroundColor: event.color }} key={event.id}>
-              {event.title}
-            </div>
-          ))}
-        </Day>
+        <Day
+          key={d.format("YYYY-MM-DD")}
+          isSamePeriod={d.isSame(date, period)}
+          date={d}
+          events={formatEvent(d.toDate())}
+        />
       ))}
     </CalendarDisplayWrap>
   );
