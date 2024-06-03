@@ -1,20 +1,14 @@
+import { Layout } from "./Layout";
 import { Calendar } from "./Calendar/Calendar";
-
-import styled from "styled-components";
-
-const NirWrap = styled.p`
-  margin: auto;
-  width: fit-content;
-  transform: rotate(45deg);
-  text-align: center;
-  color: limegreen;
-`;
+import { SideBar } from "./SideBar/SideBar";
 
 function App() {
   return (
     <>
-      <NirWrap>NIR</NirWrap>
-      <Calendar />
+      <Layout>
+        <SideBar />
+        <Calendar />
+      </Layout>
     </>
   );
 }

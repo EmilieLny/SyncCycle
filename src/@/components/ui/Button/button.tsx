@@ -9,9 +9,13 @@ export const Button = styled.button`
   font-weight: 500;
   line-height: 1.25rem;
   padding: 0.5rem 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-export const ButtonGhost = styled(Button)`
+export const ButtonDefault = styled(Button)`
   background-color: #f3f4f6;
   color: #000;
 `;

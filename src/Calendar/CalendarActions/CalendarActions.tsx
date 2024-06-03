@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button, ButtonGhost } from "@/components/ui/Button/Button";
+import { Button, ButtonDefault } from "@/components/ui/Button/Button";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { View } from "../useCalendar";
 import { useCalendarContext } from "../CalendarContext/useCalendarContext";
@@ -16,7 +16,7 @@ import { ToggleGroupItemProps } from "./CalendarAction.types";
 
 const ToggleGroupItem = ({ val, selectedValue, ...props }: ToggleGroupItemProps) => {
   if (val === selectedValue) return <Button {...props} />;
-  return <ButtonGhost {...props} />;
+  return <ButtonDefault {...props} />;
 };
 
 export const CalendarActions = () => {

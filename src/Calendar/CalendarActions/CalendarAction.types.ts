@@ -1,7 +1,7 @@
-import { Button, ButtonGhost } from "@/components/ui/Button/Button";
+import { Button, ButtonDefault } from "@/components/ui/Button/Button";
 import { StyledComponentPropsWithAs } from "src/type";
 
-export type ButtonProps = React.ComponentProps<typeof Button & typeof ButtonGhost>;
+export type ButtonProps = React.ComponentProps<typeof Button & typeof ButtonDefault>;
 
 export type StyledButtonProps = StyledComponentPropsWithAs<ButtonProps>;
 
